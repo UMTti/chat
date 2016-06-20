@@ -1,0 +1,7 @@
+<h1>Kirjaudu sisään</h1>
+
+<%= form_tag istunto_path do %>
+  käyttäjänimi <%= text_field_tag :name, params[:username] %>
+  salasana <%= password_field_tag :password, params[:password] %>
+<%= submit_tag "Kirjaudu sisään" %>
+<% end %>
