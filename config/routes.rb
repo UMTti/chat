@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :conversations
   resources :users
   resource :istunto, only: [:new, :create, :destroy] 
   # The priority is based upon order of creation: first created -> highest priority.
