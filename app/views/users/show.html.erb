@@ -21,7 +21,7 @@ appi.controller('MainCtrl', [
     });
     var param_message = {
       content: $scope.message.content,
-      user_id: $scope.company_id, 
+      user_id: $scope.user_id, 
     }
     console.log(param_message.content + " param_message");
     $.post('/send_message_for_user', { message: param_message })
