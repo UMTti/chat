@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :messages
   resources :conversations
   resources :users
   resource :istunto, only: [:new, :create, :destroy] 
@@ -8,6 +9,8 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
    root 'users#index'
    get 'signout', to: 'istuntos#destroy'
+
+   post 'send_message_for_user', to: 'messages#send_message_for_user' 
 
 
   # Example of regular route:

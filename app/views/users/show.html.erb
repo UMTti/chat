@@ -15,13 +15,13 @@ appi.controller('MainCtrl', [
   $scope.message = {};
   $scope.message.content = " ";
   $scope.sendMessage = function(){
-    $scope.user_id=(/users\/(\d+)/.exec(window.location.href)[1]);
+    $scope.receiver_id=(/users\/(\d+)/.exec(window.location.href)[1]);
     $( "#send_message_form" ).slideToggle( "slow", function() {
         // Animation complete.
     });
     var param_message = {
       content: $scope.message.content,
-      user_id: $scope.user_id, 
+      receiver_id: $scope.receiver_id, 
     }
     console.log(param_message.content + " param_message");
     $.post('/send_message_for_user', { message: param_message })
@@ -53,6 +53,17 @@ appi.controller('MainCtrl', [
   </div>
   </br>
 </div>
+
+<% else %>
+
+
+  <% @user.conversations.each do |c| %>
+    <% c.messages.each do |m| %>
+      <%= m.user.name %>: <%= m.content %> </br>
+    <% end %>
+  <% end %>
+
+
 
 <% end %>
 
